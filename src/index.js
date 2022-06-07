@@ -1,26 +1,24 @@
-import _ from 'lodash';
 import './style.css';
 
 const toDoTasks = [{
-  description: "First task",
+  description: 'First task',
   completed: true,
-  index: 1
+  index: 1,
 },
 {
-  description: "Second task",
+  description: 'Second task',
   completed: true,
-  index: 2
+  index: 2,
 },
 {
-  description: "Third task",
+  description: 'Third task',
   completed: true,
-  index: 3
-},]
+  index: 3,
+}];
 
 const taskList = document.getElementById('taskList');
 const createList = () => {
-  for (let i = 0; i < toDoTasks.length; i += 1) {
-
+  for (let i = 0; i < toDoTasks.length; i += 1){
     const taskContainer = document.createElement('div');
     taskContainer.className = 'task d-flex';
     taskList.appendChild(taskContainer);
@@ -30,7 +28,7 @@ const createList = () => {
     taskContainer.appendChild(checkBoxContainer);
 
     const checkBox = document.createElement('input');
-    checkBox.className ='form-check-input';
+    checkBox.className = 'form-check-input';
     checkBox.setAttribute('type', 'checkbox');
     checkBoxContainer.appendChild(checkBox);
 
@@ -41,7 +39,7 @@ const createList = () => {
     taskContainer.appendChild(taskInput);
 
     const optionAndTrash = document.createElement('div');
-    optionAndTrash.className ='optionAndTrash';
+    optionAndTrash.className = 'optionAndTrash';
     optionAndTrash.innerHTML = `
         <i class="fa-solid fa-ellipsis-vertical"></i>
         <i class="fa-solid fa-trash-can"></i>
