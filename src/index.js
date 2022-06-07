@@ -18,7 +18,7 @@ const toDoTasks = [{
 
 const taskList = document.getElementById('taskList');
 const createList = () => {
-  for (let i = 0; i < toDoTasks.length; i += 1){
+  for (let i = 0; i < toDoTasks.length; i += 1) {
     const taskContainer = document.createElement('div');
     taskContainer.className = 'task d-flex';
     taskList.appendChild(taskContainer);
