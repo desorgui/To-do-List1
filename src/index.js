@@ -1,6 +1,6 @@
 import './style.css';
 
-const toDoTasks = [{
+const tasks = [{
   description: 'First task',
   completed: true,
   index: 1,
@@ -18,7 +18,7 @@ const toDoTasks = [{
 
 const taskList = document.getElementById('taskList');
 const createList = () => {
-  for (let i = 0; i < toDoTasks.length; i += 1) {
+  for (let i = 0; i < tasks.length; i += 1) {
     const taskContainer = document.createElement('div');
     taskContainer.className = 'task d-flex';
     taskList.appendChild(taskContainer);
@@ -35,7 +35,7 @@ const createList = () => {
     const taskInput = document.createElement('input');
     taskInput.disabled = true;
     taskInput.setAttribute('type', 'text');
-    taskInput.setAttribute('value', `${toDoTasks[i].description}`);
+    taskInput.setAttribute('value', `${tasks[i].description}`);
     taskContainer.appendChild(taskInput);
 
     const optionAndTrash = document.createElement('div');
