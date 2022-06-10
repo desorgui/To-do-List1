@@ -1,4 +1,3 @@
-
 const taskList = document.getElementById('taskList');
 const displayOneBook = (array, index) => {
   const taskContainer = document.createElement('div');
@@ -29,13 +28,13 @@ const displayOneBook = (array, index) => {
       <i class="fa-solid fa-trash-can" id="trash${index}"></i>
   `;
   taskContainer.appendChild(optionAndTrash);
-}
+};
 
 const createList = (tasksContainer) => {
-  if(tasksContainer) {
+  if (tasksContainer) {
     tasksContainer.forEach((element, index) => {
       displayOneBook(element, index);
-  });
+    });
   }
 };
 
@@ -44,8 +43,7 @@ const refresh = () => {
   refreshButton.addEventListener('click', () => {
     window.location.reload();
   });
-}
-
+};
 
 const addOneTask = document.getElementById('addTask');
 const description = document.getElementById('description');
@@ -56,18 +54,30 @@ const addABook = (TasksList, tasksContainer) => {
       TasksList.addTask(tasksContainer.length + 1, description.value, false);
       localStorage.setItem('tasks', JSON.stringify(tasksContainer));
       window.location.reload();
-    }
+    };
   });
-}
+};
 
 const hitEnter = () => {
-  description.addEventListener("keypress", (event) =>{
-    if (event.key === "Enter") {
+  description.addEventListener('keypress', (event) => {
+    if (event.key === 'Enter') {
       event.preventDefault();
       addOneTask.click();
-    }
+    };
   });
-}
+};
+
+
+const resetIndex = (TasksList, tasksContainer) => {
+  let counter = 1;
+  tasksContainer.forEach((item, index) => {
+    item[0] = counter;
+    TasksList.updateIndex(index, item[0]);
+    tasksContainer = TasksList.getTasks();
+    localStorage.setItem('tasks', JSON.stringify(tasksContainer));
+    counter += 1;
+  });
+};
 
 const deleteTask = (TasksList, tasksContainer) => {
   const btnDelete = document.querySelectorAll('.fa-trash-can');
@@ -80,8 +90,7 @@ const deleteTask = (TasksList, tasksContainer) => {
       window.location.reload();
     });
   });
-}
-
+};
 
 const editTask = (TasksList, tasksContainer) => {
   const inputToEdit = document.querySelectorAll('.taskInput');
@@ -92,34 +101,23 @@ const editTask = (TasksList, tasksContainer) => {
         tasksContainer = TasksList.getTasks();
         localStorage.setItem('tasks', JSON.stringify(tasksContainer));
         window.location.reload();
-      }
+      };
     });
   });
-}
+};
 
 const clearCompleted = document.getElementById('clearCompleted');
 const clearCompletedTask = (TasksList, tasksContainer) => {
   clearCompleted.addEventListener('click', () => {
-    if(tasksContainer){
+    if (tasksContainer) {
       TasksList.clearCompleted();
-        tasksContainer = TasksList.getTasks();
-        localStorage.setItem('tasks', JSON.stringify(tasksContainer));
-        resetIndex(TasksList, tasksContainer);
-        window.location.reload();
-    }
+      tasksContainer = TasksList.getTasks();
+      localStorage.setItem('tasks', JSON.stringify(tasksContainer));
+      resetIndex(TasksList, tasksContainer);
+      window.location.reload();
+    };
   });
-}
-
-const resetIndex = (TasksList, tasksContainer) => {
-  let counter = 1;
-  tasksContainer.forEach((item, index) => {
-    item[0] = counter;
-    TasksList.updateIndex(index, item[0]);
-    tasksContainer = TasksList.getTasks();
-    localStorage.setItem('tasks', JSON.stringify(tasksContainer));
-    counter += 1;
-  });
-}
+};
 
 export {
   createList,
@@ -129,4 +127,4 @@ export {
   deleteTask,
   editTask,
   clearCompletedTask,
-}
+};

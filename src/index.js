@@ -11,15 +11,13 @@ import {
 } from './function';
 import changeStatus from './updateStatus';
 
-
 const TasksList = new Tasks();
 
 if (localStorage.getItem('tasks') !== null && localStorage.getItem('tasks') !== undefined) {
   TasksList.setTasks(JSON.parse(localStorage.getItem('tasks')));
 }
 
-
-let tasksContainer = TasksList.getTasks();
+const tasksContainer = TasksList.getTasks();
 
 createList(tasksContainer);
 refresh();
