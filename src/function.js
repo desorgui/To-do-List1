@@ -54,7 +54,7 @@ const addABook = (TasksList, tasksContainer) => {
       TasksList.addTask(tasksContainer.length + 1, description.value, false);
       localStorage.setItem('tasks', JSON.stringify(tasksContainer));
       window.location.reload();
-    };
+    }
   });
 };
 
@@ -63,10 +63,9 @@ const hitEnter = () => {
     if (event.key === 'Enter') {
       event.preventDefault();
       addOneTask.click();
-    };
+    }
   });
 };
-
 
 const resetIndex = (TasksList, tasksContainer) => {
   let counter = 1;
@@ -101,7 +100,7 @@ const editTask = (TasksList, tasksContainer) => {
         tasksContainer = TasksList.getTasks();
         localStorage.setItem('tasks', JSON.stringify(tasksContainer));
         window.location.reload();
-      };
+      }
     });
   });
 };
@@ -115,7 +114,7 @@ const clearCompletedTask = (TasksList, tasksContainer) => {
       localStorage.setItem('tasks', JSON.stringify(tasksContainer));
       resetIndex(TasksList, tasksContainer);
       window.location.reload();
-    };
+    }
   });
 };
 

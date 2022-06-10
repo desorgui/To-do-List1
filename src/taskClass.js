@@ -40,7 +40,8 @@ class Tasks {
   }
 
   clearCompleted() {
-    return (this.tasks = this.tasks.filter((elem) => elem.find(() => (elem[2] === false))));
+    this.tasks = this.tasks.filter((elem) => elem.find(() => (elem[2] === false)));
+    return this.tasks;
   }
 
   getTasks() {

@@ -3,7 +3,7 @@ const changeStatus = (TasksList, tasksContainer) => {
   checkBox.forEach((elem, index) => {
     const status = TasksList.getStatus(index);
     elem.addEventListener('change', () => {
-      if (this.checked && status !== true) {
+      if (elem.checked && status !== true) {
         document.getElementById(`trash${index}`).style.display = 'block';
         document.getElementById(`option${index}`).style.display = 'none';
         document.getElementById(`input${index}`).style.textDecoration = 'line-through';
@@ -24,8 +24,8 @@ const changeStatus = (TasksList, tasksContainer) => {
       document.getElementById(`trash${index}`).style.display = 'block';
       document.getElementById(`option${index}`).style.display = 'none';
       document.getElementById(`input${index}`).style.textDecoration = 'line-through';
-    };
+    }
   });
 };
 
-  export default changeStatus;
+export default changeStatus;
